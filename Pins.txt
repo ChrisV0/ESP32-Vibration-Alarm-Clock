@@ -1,0 +1,68 @@
+// originally (V. 1):
+
+// Wiring & Pin Assignments:
+//  --------------------------------------------------------
+//  Relay (alarm activation)          → GPIO 4
+//  Speaker 1 enable                  → GPIO 25
+//  Speaker 2 enable                  → GPIO 26
+//  Buzzer output                     → GPIO 13
+//  Alarm‐off button (active LOW)     → GPIO 14
+//  Snooze button (active LOW)        → GPIO 27
+//  Buzzer‐toggle button (active LOW) → GPIO 2
+//  Mute button (active LOW)          → GPIO 33
+//  Volume pot (ADC)                  → GPIO 34
+//  Battery sense ADC                 → GPIO 35
+//  Battery‐LED‐button (active LOW)   → GPIO 12
+//  LED green (≥ 4.0 V)               → GPIO 5
+//  LED yellow (≥ 3.7 V)              → GPIO 18
+//  LED orange (≥ 3.5 V)              → GPIO 19
+//  LED red (≥ 3.3 V, blink if < 3.3 V) → GPIO 21
+//  Feedback LED (on‐board LED)       → LED_BUILTIN = GPIO 32 = D2
+//  --------------------------------------------------------
+// 
+// Notes on ADC:
+//  • Battery voltage divider: 
+//      Vin → R1 = 100 kΩ → ADC (D35) → R2 = 220 kΩ → GND
+//    ADC measurement range: 0–3.3 V. 
+//    Actual battery voltage = Vadc * (R1 + R2) / R2.
+//    Ratio = (100 k + 220 k) / 220 k ≈ 1.454545
+// 
+//  • Potentiometer on D34 is assumed to be wired between 3.3 V and GND, wiper to ADC.
+//    Raw ADC (0–4095) → map to volume 0–100%.
+// 
+// Dependencies:
+//  • “BluetoothSerial.h” (built‐in for ESP32 Arduino core)
+//  • “ArduinoJson.h” (install via Library Manager; tested with v6.x)
+
+
+##########################################################################################################################
+
+V. 2
+//  Relay (alarm activation)          → GPIO 4
+//  Buzzer output                     → GPIO 13
+//  Alarm‐off button (active LOW)     → GPIO 14
+//  Snooze button (active LOW)        → GPIO 27
+//  Buzzer‐toggle button (active LOW) → GPIO 2
+//
+//  Battery sense ADC                 → GPIO 35
+//  Battery‐LED‐button (active LOW)   → GPIO 12
+//  LED green (≥ 4.0 V)               → GPIO 5
+//  LED yellow (≥ 3.7 V)              → GPIO 18
+//  LED orange (≥ 3.5 V)              → GPIO 19
+//  LED red (≥ 3.3 V, blink if < 3.3 V) → GPIO 21
+//
+//  Feedback LED (on‐board LED)       → LED_BUILTIN = GPIO 32 = D2
+
+
+// Notes on ADC:
+//  • Battery voltage divider: 
+//      Vin → R1 = 100 kΩ → ADC (D35) → R2 = 220 kΩ → GND
+//    ADC measurement range: 0–3.3 V. 
+//    Actual battery voltage = Vadc * (R1 + R2) / R2.
+//    Ratio = (100 k + 220 k) / 220 k ≈ 1.454545
+// 
+//  • Potentiometer on D34 is assumed to be wired between 3.3 V and GND, wiper to ADC.
+//    Raw ADC (0–4095) → map to volume 0–100%.
+//
+// Dependencies:
+//  • “BluetoothSerial.h” (built‐in for ESP32 Arduino core)
