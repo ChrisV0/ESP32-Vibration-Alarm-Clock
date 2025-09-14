@@ -1,0 +1,14 @@
+//  Relay (alarm activation)          → GPIO 4
+//  Buzzer output                     → GPIO 13
+//  Alarm‐off button (active LOW)     → GPIO 14
+//  Snooze button (active LOW)        → GPIO 27
+//  Buzzer‐toggle button (active LOW) → GPIO 2
+//
+//  Battery sense ADC                 → GPIO 35
+//  Battery‐LED‐button (active LOW)   → GPIO 12
+//  LED green (≥ 4.0 V)               → GPIO 5
+//  LED yellow (≥ 3.7 V)              → GPIO 18
+//  LED orange (≥ 3.5 V)              → GPIO 19
+//  LED red (≥ 3.3 V, blink if < 3.3 V) → GPIO 21
+//
+//  Feedback LED (on‐board LED)       → LED_BUILTIN = GPIO 32 = D2
